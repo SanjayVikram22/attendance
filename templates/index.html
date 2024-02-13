@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance Viewer</title>
+    <!-- Include Bootstrap CSS (optional) -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Include custom CSS styles -->
+    <style>
+      /* Add custom CSS styles here */
+    </style>
+  </head>
+  <body class="bg-warning">
+    <div class="container">
+      <center>
+        <h1 class="mt-4 text-danger">Attendance Viewer</h1>
+      </center>
+      <form class="form-inline mt-4" method="post">
+        <div class="form-group mr-2">
+          <label for="date">Select Date:</label>
+          <input
+            type="date"
+            class="form-control ml-2"
+            id="date"
+            name="date"
+            value="{{ selected_date }}"
+          />
+        </div>
+        <button type="submit" class="btn btn-outline-primary">
+          View Attendance
+        </button>
+      </form>
+      {% if attendance_data %}
+      <div class="mt-4">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for attendance_id, attendance_info in attendance_data.items() %}
+            <tr>
+              <td>{{ attendance_info.name }}</td>
+              <td>{{ attendance_info.time }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <div class="mt-4">
+        <p class="text-danger">
+          No attendance data available for {{ selected_date }}.
+        </p>
+      </div>
+      {% endif %}
+    </div>
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Include custom JavaScript (optional) -->
+    <script>
+      // Add custom JavaScript code here
+    </script>
+  </body>
+</html>
