@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Attendance Not Available</title>
     <!-- Include Bootstrap CSS (optional) -->
+    <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -12,13 +13,42 @@
     <!-- Include custom CSS styles -->
     <style>
       /* Add custom CSS styles here */
+      body {
+        background: linear-gradient(
+          -45deg,
+          #ffffff,
+          #ffe4e9,
+          #fcc8e2,
+          #f6baed,
+          #efb0ff,
+          #d3a2ff,
+          #8eb8ff,
+          #91efff,
+          #d5f9ff
+        );
+        background-size: 400% 400%;
+        animation: gradient 9s ease infinite;
+        height: 100vh;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
     </style>
   </head>
-  <body class="bg-warning">
-    <div class="container">
-      <center><h1 class="mt-4 text-danger">Attendance Viewer</h1></center>
+  <body>
+    <div>
+      <center><h1 class="mt-4 text-danger">ATTENDANCE VIEWER</h1></center>
 
-      <p class="mt-4 text-success h5">
+      <p class="mt-4 text-success h3">
         Attendance for the selected date ({{ selected_date }}) is not available.
       </p>
     </div>
